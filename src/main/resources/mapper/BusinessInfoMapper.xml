@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elm.mapper.BusinessInfoMapper">
+
+	<resultMap id="BaseResultMap" type="com.elm.pojo.BusinessInfo">
+		<id property="businessId" column="business_id" jdbcType="INTEGER"/>
+		<result property="name" column="name" jdbcType="VARCHAR"/>
+		<result property="starPrice" column="star_price" jdbcType="DOUBLE"/>
+		<result property="deliveryPrice" column="delivery_price" jdbcType="DOUBLE"/>
+		<result property="businessExplain" column="business_explain" jdbcType="VARCHAR"/>
+		<result property="logoUrl" column="logo_url" jdbcType="VARCHAR"/>
+		<result property="other" column="other" jdbcType="INTEGER"/>
+	</resultMap>
+
+	<insert id="addBusinessInfo">
+        INSERT INTO business_info
+        VALUES (#{businessId}, #{name}, #{starPrice}, #{deliveryPrice},
+                #{businessExplain}, #{logoUrl}, #{other})
+    </insert>
+	<delete id="deleteBusiness">
+		delete from business_info where business_id = #{businessId}
+	</delete>
+
+	<select id="getAllBusinessInfo" resultType="com.elm.pojo.BusinessInfo">
+		select * from business_info
+	</select>
+
+</mapper>
