@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("com.elm.mapper")
 public class ElmSpringbootApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(ElmSpringbootApplication.class, args);
     }
